@@ -40,7 +40,7 @@ export class TasksExtImpl implements TasksExt {
 
     constructor(rpc: RPCProtocol) {
         this.proxy = rpc.getProxy(PLUGIN_RPC_CONTEXT.TASKS_MAIN);
-        this.fetchTaskExecutions();
+        // this.fetchTaskExecutions();
     }
 
     get taskExecutions(): ReadonlyArray<theia.TaskExecution> {
@@ -115,7 +115,7 @@ export class TasksExtImpl implements TasksExt {
         });
     }
 
-    private async fetchTaskExecutions() {
+    public async fetchTaskExecutions() {
         try {
             const taskExecutions = await this.proxy.$taskExecutions();
             taskExecutions.forEach(execution => this.getTaskExecution(execution));
