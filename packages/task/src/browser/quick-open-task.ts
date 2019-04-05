@@ -134,6 +134,7 @@ export class QuickOpenTask implements QuickOpenModel, QuickOpenHandler {
     }
 
     async configure(): Promise<void> {
+        console.log('///////////////////// configure');
         this.items = [];
         this.actionProvider = undefined;
 
